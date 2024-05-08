@@ -85,19 +85,20 @@
 
     <h1>Real-time Face Recognition</h1>
 
-    <form id="usernameForm">
-        <label for="username">Enter your username:</label>
+    <form id="username-form" method="post" action="{{ url_for('video_feed_data2') }}">
+        <!-- Other form fields -->
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
-        <button type="button" onclick="startFaceRecognition()">Start face recognition</button>
-    </form>
+        <!-- Submit button -->
+        <button type="submit">Submit</button> 
     
     <div class="video-container">
-        <img id="video-feed" alt="Video Feed">
-    </div>
+        <img src="{{ url_for('video') }}"/>
+    <div>
 
     <!-- Add a button that appears after the video feed is done -->
     <div id="refresh-button-container">
-        <button onclick="refreshPage()">Go Back to Main</button>
+        <button onclick="refreshPage()">Log In</button>
     </div>
 
     <div id="error-message" style="display: none;">

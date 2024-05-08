@@ -58,36 +58,36 @@
         }
 
         .video-container {
-            display: grid;
-            grid-template-columns: 1fr; /* One video per row */
-            gap: 20px;
-            padding: 20px;
-            box-sizing: border-box;
-            position: relative;
-            z-index: 2;
-            margin: 0 auto; /* Centering the video containers */
-            max-width: 1100px; /* Limit the maximum width */
+        display: grid;
+        grid-template-columns: 1fr; /* One video per row */
+        gap: 20px;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+        margin: 0 auto; /* Centering the video containers */
+        max-width: 1100px; /* Limit the maximum width */
+    }
+
+    .video {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff; 
+        border-radius: 8px;
+        overflow: hidden;
+        width: calc(100% - 40px); /* Adjust width */
+    }
+        .video h2 {
+            color: #1565c0; 
+            font-size: 1.2em;
+            padding: 10px;
+            margin: 0;
+            text-align: center;
         }
-    
-        .video {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff; 
-            border-radius: 8px;
-            overflow: hidden;
-            width: calc(100% - 40px); /* Adjust width */
+
+        .video video {
+            width: 100%;
+            height: auto;
         }
-            .video h2 {
-                color: #1565c0; 
-                font-size: 1.2em;
-                padding: 10px;
-                margin: 0;
-                text-align: center;
-            }
-    
-            .video video {
-                width: 100%;
-                height: auto;
-            }
 
         .content {
             padding: 20px;
@@ -107,7 +107,6 @@
             z-index: 2;
         }
 
-       
         .art-container {
             position: absolute;
             top: 0;
@@ -147,61 +146,27 @@
             transform: scale(1.1);
         }
 
-        input[type="text"],
-        input[type="password"],
-        input[type="email"],
-        input[type="submit"] {
-            width: calc(100% - 24px);
-            padding: 16px;
-            margin-bottom: 20px;
-            border: 2px solid #1565c0; 
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-            background-color: #fff; 
-            position: relative;
-            z-index: 2;
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus,
-        input[type="email"]:focus {
-            outline: none;
-            border-color: #ba68c8;
-        }
-
-        input[type="submit"] {
-            background-color: #64b5f6; 
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 18px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #ba68c8; 
-        }
-
-        .forgot-password {
+        .button-container {
             text-align: center;
             margin-top: 20px;
-            color: #1565c0; 
-            position: relative;
-            z-index: 2;
         }
 
-        .forgot-password a {
+        .button-container button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            background-color: #e1bee7; 
             color: #1565c0; 
-            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        .forgot-password a:hover {
-            text-decoration: underline;
-        }
     </style>
-    <title>Kid's Website</title>
+    <title>G Category</title>
+
+    
 </head>
 <body>
     
@@ -215,22 +180,20 @@
 
    
     <header>
-        <a href="#top">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="max-width: 150px;">
-        </a>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
         <nav>
-            <a href="{{ url_for('login') }}">Sign Out</a>
+            <a href="{{ url_for('main') }}">Home</a>
+            <a href="#" onclick="{{ url_for('login') }}">Sign Out</a>
         </nav>
     </header>
 
    
-    <h1>Welcome to Kid's Corner</h1>
-
+    <h1>G Category</h1>
    
     <div class="video-container">
        
         <div class="video">
-            <h2>G flip the Frog</h2>
+            <h2>G</h2>
             <video width="100%" height="200" controls>
                 <source src="{{ url_for('static', filename='kids video 2.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -238,7 +201,7 @@
         </div>
 
         <div class="video">
-            <h2>G the lost dream</h2>
+            <h2>G</h2>
             <video width="100%" height="200" controls>
                 <source src="{{ url_for('static', filename='kids video 3.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -246,7 +209,7 @@
         </div>
 
         <div class="video">
-            <h2>G Trolley Ahoy</h2>
+            <h2>G</h2>
             <video width="100%" height="200" controls>
                 <source src="{{ url_for('static', filename='kids video 4.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -254,7 +217,7 @@
         </div>
 
         <div class="video">
-            <h2>G Medicated Baby-Heads</h2>
+            <h2>G</h2>
             <video width="100%" height="200" controls>
                 <source src="{{ url_for('static', filename='kids video 5.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -262,7 +225,7 @@
         </div>
 
         <div class="video">
-            <h2>G Part2:construction</h2>
+            <h2>Magical Fun</h2>
             <video width="100%" height="200" controls>
                 <source src="{{ url_for('static', filename='kids video 1.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -270,7 +233,7 @@
         </div>
 
         <div class="video">
-            <h2>G Manga</h2>
+            <h2>G</h2>
             <video width="100%" height="200" controls>
                 <source src="{{ url_for('static', filename='kids video 6.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -279,7 +242,7 @@
 
 
         <div class="video">
-            <h2>G Kid save the day</h2>
+            <h2>Magical Fun</h2>
             <video width="100%" height="200" controls>
                 <source src="{{ url_for('static', filename='kids video 7.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
@@ -287,8 +250,25 @@
         </div>
     </div>
 
+    
+    <div class="content">
+       
+    </div>   
+    
+    <script>
 
-                             
+            // Function to refresh the page after 1 minute
+            function refreshPage() {
+                location.reload();
+            }
+    
+            // Call the refreshPage function after 1 minute (60000 milliseconds)
+            setTimeout(refreshPage, 60000);
+
+        function signOut() {
+            window.close();
+        }
+    </script>
+    
 </body>
 </html>
-  

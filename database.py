@@ -13,6 +13,13 @@ conn = mysql.connector.connect(
 cursor = conn.cursor()
 
 def create_user(username, password, age_input, email):
+    # Check if the username already exists
+    query = "SELECT COUNT(*) FROM user WHERE username = %s"
+    cursor.execute(query, (username,))
+    result = cursor.fetchone()
+    if result[0] > 0:
+        return "Error: The username is already taken."  # Return error message if username is already taken
+
     # Insert a new user into the 'users' table
     query = "INSERT INTO user (username, user_password, age_input, email) VALUES (%s, %s, %s, %s)"
     cursor.execute(query, (username, password, age_input, email))
@@ -25,8 +32,8 @@ def authenticate_user(username, password):
     return cursor.fetchone() is not None
 
 def get_user_age(username):
-    # Retrieve the age of the user from the 'user' table
-    query = "SELECT age_input FROM user WHERE username = %s"
+    # Retrieve the age difference of the user from the 'maetest' table
+    query = "SELECT age_difference FROM maetest WHERE username = %s ORDER BY timer DESC LIMIT 1"
     cursor.execute(query, (username,))
     result = cursor.fetchone()
     return result[0] if result else None

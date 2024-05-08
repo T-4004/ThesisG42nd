@@ -85,16 +85,9 @@
 
     <h1>Real-time Face Recognition</h1>
 
-    <form id="username-form" method="post" action="{{ url_for('video_feed_data') }}">
-        <!-- Other form fields -->
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <!-- Submit button -->
-        <button type="submit">Submit</button> 
-    
     <div class="video-container">
-        <img src="{{ url_for('video') }}"/>
-    <div>
+        <img id="video-feed" src="{{ url_for('generate_video_feed') }}" alt="Video Feed">
+    </div>
 
     <!-- Add a button that appears after the video feed is done -->
     <div id="refresh-button-container">
@@ -105,8 +98,6 @@
         <p>Face could not be detected. Please refresh the page.</p>
     </div>
 
-
-    
     <!-- Include the JavaScript file -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
